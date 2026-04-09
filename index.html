@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Brands Quiz</title>
+  <meta
+    name="description"
+    content="Преміальна вікторина про бренди автомобілів: 12 складних питань, 20 секунд на кожне, фото, факти та динамічний рахунок."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Oxanium:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="scene scene--start is-visible" data-scene="start">
+      <div class="hero-copy glass-panel">
+        <p class="eyebrow">Midnight Track Edition</p>
+        <h1>Car Brands Quiz</h1>
+        <p class="hero-text">
+          12 по-справжньому складних питань про історію, географію, логотипи та фото рідкісних автобрендів.
+        </p>
+        <div class="hero-meta">
+          <span>12 питань</span>
+          <span>20 секунд</span>
+          <span>4 варіанти</span>
+          <span>Фото та факти</span>
+        </div>
+        <div class="hero-actions">
+          <button id="start-quiz" class="primary-button" type="button">Почати</button>
+          <p class="hero-note">Одна помилка не ламає гру. Але таймер не чекає.</p>
+        </div>
+      </div>
+
+      <div class="hero-visual glass-panel" aria-hidden="true">
+        <div class="visual-badge">Legendary Marques</div>
+        <div class="visual-copy">
+          <p>Історія брендів</p>
+          <strong>Від Турина до Маранелло</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene--quiz" data-scene="quiz" hidden>
+      <header class="quiz-topbar glass-panel">
+        <div class="progress-copy">
+          <span class="progress-label" id="question-counter">Питання 1 з 12</span>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="scoreboard">
+          <div class="score-chip">
+            <span class="chip-label">Бали</span>
+            <strong id="score-value">0</strong>
+          </div>
+
+          <div class="timer-ring-wrap" aria-live="polite">
+            <svg class="timer-svg" viewBox="0 0 120 120" aria-hidden="true">
+              <circle class="timer-track" cx="60" cy="60" r="54"></circle>
+              <circle class="timer-progress" id="timer-ring" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="timer-copy">
+              <span id="time-left">20</span>
+              <small>сек</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <article class="question-card glass-panel" id="question-card"></article>
+    </section>
+
+    <section class="scene scene--result" data-scene="result" hidden>
+      <div class="result-card glass-panel">
+        <p class="eyebrow">Фініш вікторини</p>
+        <p class="result-rank" id="result-rank">Автоісторик</p>
+        <div class="result-score-line">
+          <span class="result-score-value" id="result-score">0</span>
+          <span class="result-score-unit">балів</span>
+        </div>
+        <p class="result-summary" id="result-summary">
+          Ти щойно пройшов складний маршрут через історію та географію автомобільних легенд.
+        </p>
+
+        <div class="result-metrics">
+          <div class="result-metric">
+            <span class="metric-label">Правильних</span>
+            <strong id="result-correct">0 / 12</strong>
+          </div>
+          <div class="result-metric">
+            <span class="metric-label">Точність</span>
+            <strong id="result-accuracy">0%</strong>
+          </div>
+        </div>
+
+        <button id="restart-quiz" class="primary-button" type="button">Спробувати ще раз</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./quiz-engine.js"></script>
+  <script src="./quiz-data.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
