@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <title>Eco Quiz Mobile Start Test</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+      }
+
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+        display: block;
+      }
+
+      pre {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="app" src="/"></iframe>
+    <pre id="report">PENDING</pre>
+    <script>
+      const frame = document.getElementById("app");
+
+      function emitReport() {
+        const doc = frame.contentWindow.document;
+        const posterImage = doc.querySelector(".poster__image");
+        const posterCopy = doc.querySelector(".poster__copy");
+        const posterLead = doc.querySelector(".poster__copy p");
+        const heroActions = doc.querySelector(".hero__actions");
+        const startButton = doc.getElementById("start-quiz");
+
+        const report = {
+          posterImageHeight: Math.round(posterImage.getBoundingClientRect().height),
+          posterImageBottom: Math.round(posterImage.getBoundingClientRect().bottom),
+          posterCopyTop: Math.round(posterCopy.getBoundingClientRect().top),
+          posterLeadFontSize: Math.round(parseFloat(getComputedStyle(posterLead).fontSize)),
+          heroActionsWidth: Math.round(heroActions.getBoundingClientRect().width),
+          startButtonWidth: Math.round(startButton.getBoundingClientRect().width)
+        };
+
+        document.getElementById("report").textContent = JSON.stringify(report);
+      }
+
+      frame.addEventListener("load", () => {
+        setTimeout(emitReport, 1400);
+      });
+    </script>
+  </body>
+</html>

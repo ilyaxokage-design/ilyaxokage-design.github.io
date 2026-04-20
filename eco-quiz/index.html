@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Problems Quiz</title>
+  <meta
+    name="description"
+    content="Світла інтерактивна вікторина про екологічні проблеми: 12 складних питань, таймер, бали, single-select і multi-select."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="scene scene--start is-visible" data-scene="start">
+      <div class="hero">
+        <div class="hero__content paper-card">
+          <p class="eyebrow">Nature Reborn Quiz</p>
+          <h1>Екологічні проблеми без простих відповідей</h1>
+          <p class="hero__text">
+            12 складних запитань про клімат, воду, відходи, біорізноманіття, мікропластик і наш щоденний слід.
+          </p>
+
+          <div class="hero__meta">
+            <span>12 питань</span>
+            <span>20 секунд</span>
+            <span>single + multi</span>
+            <span>бали та пояснення</span>
+          </div>
+
+          <div class="hero__actions">
+            <button id="start-quiz" class="primary-button" type="button">Почати</button>
+            <p class="hero__note">Порядок питань і відповідей щоразу змінюється.</p>
+          </div>
+        </div>
+
+        <aside class="hero__poster paper-card" aria-hidden="true">
+          <div class="poster__badge">Eco poster mode</div>
+          <div class="poster__image"></div>
+          <div class="poster__copy">
+            <p>Глобальні системи, а не тільки побутові звички</p>
+            <strong>Клімат, вода, мікропластик, відходи</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="scene scene--quiz" data-scene="quiz" hidden>
+      <header class="topbar paper-card">
+        <div class="topbar__group">
+          <span class="topbar__label" id="question-counter">Питання 1 з 12</span>
+          <div class="progress-track">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="topbar__stats">
+          <div class="stat-chip">
+            <span class="stat-chip__label">Бали</span>
+            <strong id="score-value">0</strong>
+          </div>
+          <div class="timer-box">
+            <span class="timer-box__label">Час</span>
+            <strong id="time-left">20</strong>
+          </div>
+        </div>
+      </header>
+
+      <article class="question-card paper-card" id="question-card"></article>
+    </section>
+
+    <section class="scene scene--result" data-scene="result" hidden>
+      <div class="result-card paper-card">
+        <p class="eyebrow">Підсумок проходження</p>
+        <h2 id="result-title">Екологічний аналітик</h2>
+        <div class="result-score">
+          <span id="result-score">0</span>
+          <small>балів</small>
+        </div>
+        <p class="result-text" id="result-summary">
+          Ти пройшов складний маршрут через системні екологічні питання, а не лише побутові міфи.
+        </p>
+
+        <div class="result-grid">
+          <div class="result-metric">
+            <span>Правильних</span>
+            <strong id="result-correct">0 / 12</strong>
+          </div>
+          <div class="result-metric">
+            <span>Точність</span>
+            <strong id="result-accuracy">0%</strong>
+          </div>
+        </div>
+
+        <button id="restart-quiz" class="primary-button" type="button">Спробувати ще раз</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./quiz-engine.js"></script>
+  <script src="./quiz-data.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
