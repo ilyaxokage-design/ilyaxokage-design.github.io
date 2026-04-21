@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Економічна географія Канади</title>
+  <meta
+    name="description"
+    content="Світла мобільна вікторина про економічну географію Канади: 12 цікавих фактів, фото, 20 секунд на питання, бали та мікс single-select і multi-select."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="scene scene--start is-visible" data-scene="start">
+      <div class="hero">
+        <div class="hero__content atlas-card">
+          <p class="eyebrow">Canada Atlas Quiz</p>
+          <h1>Економічна географія Канади</h1>
+          <p class="hero__text">
+            12 коротких, але реально цікавих фактів про порти, прерії, кленовий сироп, гідроенергетику,
+            копалини, транспортні коридори й міста, які тримають канадську економіку в русі.
+          </p>
+
+          <div class="hero__meta">
+            <span>12 питань</span>
+            <span>20 секунд</span>
+            <span>single + multi</span>
+            <span>фото і факти</span>
+          </div>
+
+          <div class="hero__actions">
+            <button id="start-quiz" class="primary-button" type="button">Почати</button>
+            <p class="hero__note">Порядок питань і відповідей змінюється при кожному новому проходженні.</p>
+          </div>
+        </div>
+
+        <aside class="hero__poster atlas-card" aria-hidden="true">
+          <div class="poster__badge">Atlas preview</div>
+          <div class="poster__image"></div>
+          <div class="poster__copy">
+            <p>Від тихоокеанських портів і прерій до кленових лісів, авто-заводів та арктичних ресурсів</p>
+            <strong>Маршрути, провінції, ресурси, міста</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="scene scene--quiz" data-scene="quiz" hidden>
+      <header class="topbar atlas-card">
+        <div class="topbar__group">
+          <span class="topbar__label" id="question-counter">Питання 1 з 12</span>
+          <div class="progress-track">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="topbar__stats">
+          <div class="stat-chip">
+            <span class="stat-chip__label">Бали</span>
+            <strong id="score-value">0</strong>
+          </div>
+          <div class="timer-box">
+            <span class="timer-box__label">Час</span>
+            <strong id="time-left">20</strong>
+          </div>
+        </div>
+      </header>
+
+      <article class="question-card atlas-card" id="question-card"></article>
+    </section>
+
+    <section class="scene scene--result" data-scene="result" hidden>
+      <div class="result-card atlas-card">
+        <p class="eyebrow">Підсумок маршруту</p>
+        <h2 id="result-title">Мапознавець Канади</h2>
+        <div class="result-score">
+          <span id="result-score">0</span>
+          <small>балів</small>
+        </div>
+        <p class="result-text" id="result-summary">
+          Ти пройшов маршрут крізь порти, ферми, копальні, електростанції та міста Канади.
+        </p>
+
+        <div class="result-grid">
+          <div class="result-metric">
+            <span>Правильних</span>
+            <strong id="result-correct">0 / 12</strong>
+          </div>
+          <div class="result-metric">
+            <span>Точність</span>
+            <strong id="result-accuracy">0%</strong>
+          </div>
+        </div>
+
+        <button id="restart-quiz" class="primary-button" type="button">Спробувати ще раз</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./quiz-engine.js"></script>
+  <script src="./quiz-data.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
